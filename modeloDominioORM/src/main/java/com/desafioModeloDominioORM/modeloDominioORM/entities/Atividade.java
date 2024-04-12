@@ -15,7 +15,7 @@ public class Atividade {
     private String nome;
     @Column(columnDefinition = "TEXT")
     private String descricao;
-    private Double price;
+    private Double preco;
     @ManyToOne
     @JoinColumn(name = "categoria_id")
     private Categoria categoria;
