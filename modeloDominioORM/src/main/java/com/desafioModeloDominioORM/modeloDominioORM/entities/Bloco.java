@@ -21,4 +21,14 @@ public class Bloco {
     @ManyToOne
     @JoinColumn(name = "atividade_id")
     private Atividade atividade;
+
+    public Bloco() {
+    }
+
+    public Bloco(Integer id, Instant inicio, Instant fim, Atividade atividade) {
+        this.id = id;
+        this.inicio = inicio;
+        this.fim = fim;
+        this.atividade = atividade;
+    }
 }

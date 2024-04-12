@@ -24,4 +24,17 @@ public class Atividade {
 
     @OneToMany(mappedBy = "atividade")
     private Set<Bloco> blocos = new HashSet<>();
+
+    public Atividade() {
+    }
+
+    public Atividade(Integer id, String nome, String descricao, Double preco, Categoria categoria, Set<Participante> participantes, Set<Bloco> blocos) {
+        this.id = id;
+        this.nome = nome;
+        this.descricao = descricao;
+        this.preco = preco;
+        this.categoria = categoria;
+        this.participantes = participantes;
+        this.blocos = blocos;
+    }
 }

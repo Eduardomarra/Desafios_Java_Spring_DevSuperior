@@ -20,4 +20,14 @@ public class Participante {
             joinColumns = @JoinColumn(name = "participante_id"),
             inverseJoinColumns = @JoinColumn(name = "atividade_id"))
     private Set<Atividade> atividades = new HashSet<>();
+
+    public Participante() {
+    }
+
+    public Participante(Integer id, String nome, String email, Set<Atividade> atividades) {
+        this.id = id;
+        this.nome = nome;
+        this.email = email;
+        this.atividades = atividades;
+    }
 }
