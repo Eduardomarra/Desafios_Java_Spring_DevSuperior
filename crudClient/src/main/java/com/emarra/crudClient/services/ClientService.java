@@ -20,7 +20,7 @@ public class ClientService {
 
     @Transactional(readOnly = true)
     public ClientDTO findById( Long id) {
-        Optional<Client> client = repository.findById(id);
+        Client client = repository.findById(id).orElseThrow();
         return new ClientDTO(client);
     }
 
@@ -28,5 +28,21 @@ public class ClientService {
     public Page<ClientDTO> findAll(Pageable pageable) {
         Page<Client> result = repository.findAll(pageable);
         return result.map(x -> new ClientDTO(x));
+    }
+
+    @Transactional
+    public ClientDTO insert(ClientDTO dto) {
+        Client client = new Client();
+        copyDtoToEntity(dto, client);
+        client = repository.save(client);
+        return new ClientDTO(client);
+    }
+
+    private void copyDtoToEntity(ClientDTO dto, Client client){
+        client.setName(dto.getName());
+        client.setCpf(dto.getCpf());
+        client.setIncome(dto.getIncome());
+        client.setBirthDate(dto.getBirthDate());
+        client.setChildren(dto.getChildren());
     }
 }

@@ -3,7 +3,6 @@ package com.emarra.crudClient.dto;
 import com.emarra.crudClient.entities.Client;
 
 import java.time.LocalDate;
-import java.util.Optional;
 
 public class ClientDTO {
 
@@ -30,15 +29,6 @@ public class ClientDTO {
         income = client.getIncome();
         birthDate = client.getBirthDate();
         children = client.getChildren();
-    }
-
-    public ClientDTO(Optional<Client> client) {
-        id = client.get().getId();
-        name = client.get().getName();
-        cpf = client.get().getCpf();
-        income = client.get().getIncome();
-        birthDate = client.get().getBirthDate();
-        children = client.get().getChildren();
     }
 
     public Long getId() {
