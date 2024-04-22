@@ -1,0 +1,15 @@
+INSERT INTO tb_client (name, cpf, income, birth_date, children) VALUES ('João da Silva', '000.000.000-00', 50000.00, '2000-01-01', 2);
+INSERT INTO tb_client (name, cpf, income, birth_date, children) VALUES ('Maria Conceição', '111.111.111-11', 150000.00, '1985-02-05', 3);
+INSERT INTO tb_client (name, cpf, income, birth_date, children) VALUES ('José Juvencio', '222.222.222-22', 48000.00, '1987-04-03', 4);
+INSERT INTO tb_client (name, cpf, income, birth_date, children) VALUES ('Joao Bezerra', '333.333.333-33', 30000.00, '1977-05-29', 1);
+INSERT INTO tb_client (name, cpf, income, birth_date, children) VALUES ('Marcos José', '444.444.444-44', 200000.00, '1975-06-13', 2);
+INSERT INTO tb_client (name, cpf, income, birth_date, children) VALUES ('Beatriz Merencio', '555.555.555-55', 70000.00, '1988-07-28', 1);
+INSERT INTO tb_client (name, cpf, income, birth_date, children) VALUES ('Claudio Gomes', '666.666.666-66', 60000.00, '1991-06-30', 3);
+INSERT INTO tb_client (name, cpf, income, birth_date, children) VALUES ('Marcio Silveira', '777.777.777-77', 80000.00, '1980-12-10', 3);
+INSERT INTO tb_client (name, cpf, income, birth_date, children) VALUES ('Tiago Capão', '888.888.888-88', 90000.00, '2001-11-12', 5);
+INSERT INTO tb_client (name, cpf, income, birth_date, children) VALUES ('Igor Ribeiro', '999.999.999-99', 110000.00, '1965-12-22', 3);
+INSERT INTO tb_client (name, cpf, income, birth_date, children) VALUES ('Alice Braga', '000.111.111.-00', 120000.00, '1986-06-01', 2);
+INSERT INTO tb_client (name, cpf, income, birth_date, children) VALUES ('Rosa Silva', '000.222.222-00', 59000.00, '1989-04-09', 2);
+INSERT INTO tb_client (name, cpf, income, birth_date, children) VALUES ('Aline Magalhaes', '111.222.333.-44', 39000.00, '1990-02-13', 1);
+INSERT INTO tb_client (name, cpf, income, birth_date, children) VALUES ('Cilene Santos', '222.000.222-11', 225000.00, '2002-07-31', 3);
+INSERT INTO tb_client (name, cpf, income, birth_date, children) VALUES ('Laura Braga', '999.555.666-99', 400000.00, '1954-01-05', 4);
