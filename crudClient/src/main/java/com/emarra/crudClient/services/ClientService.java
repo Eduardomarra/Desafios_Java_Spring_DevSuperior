@@ -3,6 +3,7 @@ package com.emarra.crudClient.services;
 import com.emarra.crudClient.dto.ClientDTO;
 import com.emarra.crudClient.entities.Client;
 import com.emarra.crudClient.repositories.ClientRepository;
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -36,6 +37,20 @@ public class ClientService {
         copyDtoToEntity(dto, client);
         client = repository.save(client);
         return new ClientDTO(client);
+    }
+
+    @Transactional
+    public ClientDTO update(Long id, ClientDTO dto) {
+        try {
+            Client client = repository.getReferenceById(id);
+            copyDtoToEntity(dto, client);
+            client = repository.save(client);
+            return new ClientDTO(client);
+        }
+        catch(EntityNotFoundException e) {
+            throw new EntityNotFoundException(e.getMessage());
+        }
+
     }
 
     private void copyDtoToEntity(ClientDTO dto, Client client){
