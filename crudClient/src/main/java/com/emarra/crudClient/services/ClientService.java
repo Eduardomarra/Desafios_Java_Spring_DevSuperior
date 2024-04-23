@@ -3,15 +3,14 @@ package com.emarra.crudClient.services;
 import com.emarra.crudClient.dto.ClientDTO;
 import com.emarra.crudClient.entities.Client;
 import com.emarra.crudClient.repositories.ClientRepository;
+import com.emarra.crudClient.services.exceptions.ResourcenotFoundException;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
-
-import java.util.List;
-import java.util.Optional;
 
 @Service
 public class ClientService {
@@ -21,7 +20,7 @@ public class ClientService {
 
     @Transactional(readOnly = true)
     public ClientDTO findById( Long id) {
-        Client client = repository.findById(id).orElseThrow();
+        Client client = repository.findById(id).orElseThrow(() -> new ResourcenotFoundException("Recurso não encontrado"));
         return new ClientDTO(client);
     }
 
@@ -48,14 +47,23 @@ public class ClientService {
             return new ClientDTO(client);
         }
         catch(EntityNotFoundException e) {
-            throw new EntityNotFoundException(e.getMessage());
+            throw new ResourcenotFoundException(e.getMessage());
         }
 
     }
 
-    @Transactional
+    @Transactional(propagation = Propagation.SUPPORTS)
     public void delete(Long id) {
-        repository.deleteById(id);
+        if(!repository.existsById(id)) {
+            throw new ResourcenotFoundException("Recurso não encontrado");
+        }
+
+        try{
+            repository.deleteById(id);
+        }
+        catch(RuntimeException e) {
+            throw new ResourcenotFoundException("Recurso não encontrado");
+        }
     }
 
     private void copyDtoToEntity(ClientDTO dto, Client client){

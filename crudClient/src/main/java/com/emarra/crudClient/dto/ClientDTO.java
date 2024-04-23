@@ -11,8 +11,7 @@ import java.time.LocalDate;
 public class ClientDTO {
 
     private Long id;
-    @Min(value = 3)
-    @NotBlank
+    @NotBlank(message = "Campo requerido.")
     private String name;
     private String cpf;
     private Double income;
