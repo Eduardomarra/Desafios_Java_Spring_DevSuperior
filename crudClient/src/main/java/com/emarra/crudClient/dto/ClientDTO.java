@@ -1,15 +1,22 @@
 package com.emarra.crudClient.dto;
 
 import com.emarra.crudClient.entities.Client;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.PastOrPresent;
 
 import java.time.LocalDate;
 
 public class ClientDTO {
 
     private Long id;
+    @Min(value = 3)
+    @NotBlank
     private String name;
     private String cpf;
     private Double income;
+    @PastOrPresent
     private LocalDate birthDate;
     private Integer children;
 
